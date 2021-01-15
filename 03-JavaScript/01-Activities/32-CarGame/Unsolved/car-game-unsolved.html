@@ -53,9 +53,13 @@
 
       // TO DO: Log all of our car's current stats to the console.
       function reWriteStats() {
-        
+        console.log("Make: " + car.make);
+        console.log("Model: " + car.model);
+        console.log("Color: " + car.color);
+        console.log("Mileage: " + car.mileage);
+        console.log("Is this working: " + car.isWorking);
       }
-
+       
       // MAIN PROCESS
       // ==============================================================================
 
@@ -66,8 +70,25 @@
         letter = prompt("Type 'h' to honk, 'd' to drive to work, 'w' to drive around the world, or 't' to get a tuneup.");
         
         // TO DO: Call the different car methods
-      }
+         if (letter === "h"){
+           car.honk();
+           reWriteStats();
+         }
+         if (letter === "d"){
+           car.driveToWork();
+           reWriteStats();
+         }
+         if (letter === "w"){
+           car.driveAroundWorld();
+           reWriteStats();
+         }
+         if (letter === "t"){
+           car.getTuneUp();
+           reWriteStats();
+         }
 
+      }
+     
     </script>
 
   </body>

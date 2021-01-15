@@ -33,11 +33,21 @@
   <h1 class="text-center" id="random-number"></h1>
 
   <script type="text/javascript">
-    $(document).ready(function () {
+  $(document).ready(function () {
 
-      //jquery code here
-
+    $("#random-button").on("click", function(){
+      var lottoNumber = "";
+// generated 9 separate numbers
+      for (var i=0; i < 9; i++) {
+        // generate a new random number between 0 and 9 
+        var random = Math.floor(Math.random() * 10);
+        // takes number and adds to rest of string
+        lottoNumber = random + lottoNumber;
+    }
+    $("#random-number").prepend("<br><hr>" + lottoNumber);
+  
     });
+  });
   </script>
 
 </body>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //declare and set up prompt//
+
+        var player1 = prompt("Is your choice rock, paper, or scissors?");
+        var computerChoice = Math.random();
+        
+        // establish what is rock, paper, scissor//
+
+        if (computerChoice <= 0.34) {
+          var player2 = "rock";
+        } else if (computerChoice <= 0.67) {
+          var player2 ="paper";
+        } else {
+            var player2 = "scissors";
+        }
+        alert("Computer has chosen " + player2);
+        allowed = ["Paper", "Rock", "Scissors"]
+        
+        if(player1 == "rock") {
+            if (player2 == "scissors") {
+                alert("Player One Wins!");
+            } 
+            else if (player2 == "paper") {
+                alert("Player Two Wins!");
+            }
+        }
+        else if(player1 == "paper") {
+            if(player2 == "rock") {
+                alert("Player 1 Wins!");
+            } else if(player2 =="scissors") {
+                alert("Player 2 Wins!");
+            }
+        }
+        else if(player1 == "scissors") {
+            if(player2 == "rock") {
+                alert("Player 1 Wins!");
+            } else if (player2 =="paper") {
+                alert("Player 2 Wins!");
+            }
+        }
+        
+        
+
+    </script>
+</body>
+</html>

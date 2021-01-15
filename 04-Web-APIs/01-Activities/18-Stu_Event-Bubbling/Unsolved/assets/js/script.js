@@ -1,8 +1,11 @@
 // TODO: Which element is the following line of code selecting?
 var carousel = document.querySelector(".carouselbox");
+// class - image
 // TODO: Which element is the following line of code selecting?
 var next = carousel.querySelector(".next");
+// class - button
 var prev = carousel.querySelector(".prev");
+// class - button
 var index = 0;
 var currentImage;
 
@@ -29,11 +32,13 @@ function navigate(direction) {
 // TODO: Describe the functionality of the following event listener.
 carousel.addEventListener("click", function() {
   window.location.href = images[index];
+  // allows you to click on the arrays - generates an image.
 });
 
 // TODO: Describe the functionality of the following event listener.
 next.addEventListener("click", function(event) {
   // TODO: What is the purpose of the following line of code?
+  // 
   event.stopPropagation();
 
   navigate(1);
