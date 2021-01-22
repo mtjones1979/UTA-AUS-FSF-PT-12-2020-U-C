@@ -13,14 +13,14 @@
     // EXAMPLE ONE:
     // --------------------------------------------------
     // What is "this" going to print?
-
+    // empty function with empty console log
     console.log(this);
 
 
     // EXAMPLE TWO:
     // --------------------------------------------------
     // What is "this" going to print?
-
+    // same as above no other functions
     function myFunction() {
       console.log(this);
     }
@@ -29,7 +29,7 @@
     // EXAMPLE THREE (IMPORTANT):
     // --------------------------------------------------
     // What is "someObj.say()" going to print?
-
+    // would say red hat.
     var someObj = {
       name: "Red Hat",
       say: function() {

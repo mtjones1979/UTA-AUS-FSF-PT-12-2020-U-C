@@ -67,11 +67,18 @@
       // =================================================================================
 
       // 1. Create a for-loop to iterate through the letters array.
-
+        for (var i = 0; i < letters.length; i++) {
+          var letterBtn = $("<button>");
+          letterBtn.addClass("letter-button letter letter-button-color");
+          letterBtn.attr("data-letter", letters[i]);
+          letterBtn.text(letters[i]);
+          $("#buttons").append(letterBtn);
+          console.log(letterBtn);
+        }
       // Inside the loop...
 
       // 2. Create a variable named "letterBtn" equal to $("<button>");
-
+        
       // 3. Then give each "letterBtn" the following classes: "letter-button" "letter" "letter-button-color".
 
       // 4. Then give each "letterBtn" an attribute called "data-letter", with a value eqaual to "letters[i]"
@@ -86,7 +93,14 @@
       // =================================================================================
 
       // 7. Create an "on-click" event attached to the ".letter-button" class.
+        $(".letter-button").on("click", function() {
+          var fridgeMagnet = $("<div>");
+            fridgeMagnet.addClass("letter fridge-color");
+            fridgeMagnet.text($(this).attr("data-letter"));
+            $("#display").append(fridgeMagnet);
 
+            console.log(fridgeMagnet);
+        });
       // Inside the on-click event...
 
       // 8. Create a variable called "fridgeMagnet" and set the variable equal to a new div.
@@ -103,7 +117,9 @@
       // =================================================================================
 
       // 12. Create an "on-click" event attached to the "#clear" button id.
-
+        $("#clear").on("click", function() {
+            $("#display").empty();
+        });
       // Inside the on-click event...
 
       // 13. Use the jQuery "empty()" method to clear the contents of the "#display" div.
