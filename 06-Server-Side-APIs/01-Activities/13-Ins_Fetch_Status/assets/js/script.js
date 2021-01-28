@@ -4,7 +4,11 @@ var responseText = document.getElementById('response-text');
 
 function getApi(requestUrl) {
   fetch(requestUrl)
-    .then(function (response) {})
+    .then(function (response) {
+      console.log(response.status);
+      responseText.textContent = response.status;
+      return response.json();
+    })
     .then(function (data) {
       console.log(data);
     });
