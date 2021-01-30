@@ -4,7 +4,7 @@ var limitWarningEl = document.querySelector('#limit-warning');
 
 var getRepoName = function () {
   // Where is this value coming from?
-  // TODO: Write your answer here
+  // TODO:coming from URL search bar in broswer this is what comes after ?
   var queryString = document.location.search;
   var repoName = queryString.split('=')[1];
 
@@ -14,7 +14,7 @@ var getRepoName = function () {
     getRepoIssues(repoName);
   } else {
     // Under what condition will this run?
-    // TODO: Write your answer here
+    // TODO: run and return to home page if nothing in URL parameter
     document.location.replace('./index.html');
   }
 };
@@ -28,7 +28,7 @@ var getRepoIssues = function (repo) {
         displayIssues(data);
 
         // What is this checking for? Under what condition will this be `true`?
-        // TODO: Write your answer here
+        // TODO: returns only 30 reults we check to see if there are more by looking for next page
         if (response.headers.get('Link')) {
           displayWarning(repo);
         }
@@ -41,7 +41,7 @@ var getRepoIssues = function (repo) {
 
 var displayIssues = function (issues) {
   // Is there a difference between this and `!issues.length`?
-  // TODO: Write your answer here
+  // TODO: check for strict equality using !issues.length works but on bc javascript cosiders 0 to be falsy
   if (issues.length === 0) {
     issueContainerEl.textContent = 'This repo has no open issues!';
     return;
@@ -72,7 +72,7 @@ var displayIssues = function (issues) {
 };
 
 // What does this function do?
-// TODO: Write your answer here
+// TODO: shows more than 30 issues - prints message
 var displayWarning = function (repo) {
   limitWarningEl.textContent = 'To see more than 30 issues, visit ';
 
@@ -82,7 +82,7 @@ var displayWarning = function (repo) {
   linkEl.setAttribute('target', '_blank');
 
   // Where does this appear on the page?
-  // TODO: Write your answer here
+  // TODO: appear on bottom of the page
   limitWarningEl.appendChild(linkEl);
 };
 

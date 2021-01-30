@@ -8,7 +8,7 @@ var formSubmitHandler = function (event) {
   event.preventDefault();
 
   var username = nameInputEl.value.trim();
-
+// to cycle through content
   if (username) {
     getUserRepos(username);
 
@@ -21,11 +21,12 @@ var formSubmitHandler = function (event) {
 
 var buttonClickHandler = function (event) {
   // What is `event.target` referencing?
-  // TODO: Write your answer here
+  // TODO: when one of the "data language" is clicked - event.target is element being clicked
   var language = event.target.getAttribute('data-language');
 
   // Why is this `if` block in place?
-  // TODO: Write your answer here
+  // TODO: If the buttons are clicked it will show, sanitize input - 
+  // to make sure there is value to pass to function 
   if (language) {
     getFeaturedRepos(language);
 
@@ -55,7 +56,7 @@ var getUserRepos = function (user) {
 
 var getFeaturedRepos = function (language) {
   // What are the query parameters doing here?
-  // TODO: Write your answer here
+  // TODO: gets input into searching - language is function what language is 
   var apiUrl = 'https://api.github.com/search/repositories?q=' + language + '+is:featured&sort=help-wanted-issues';
 
   fetch(apiUrl).then(function (response) {
@@ -73,7 +74,7 @@ var displayRepos = function (repos, searchTerm) {
   if (repos.length === 0) {
     repoContainerEl.textContent = 'No repositories found.';
     // What would happen if there was no `return;` here?
-    // TODO: Write your answer here
+    // TODO: if nothing is found and don't do return - everything else will run
     return;
   }
 
@@ -81,7 +82,7 @@ var displayRepos = function (repos, searchTerm) {
 
   for (var i = 0; i < repos.length; i++) {
     // What is the result of this string concatenation?
-    // TODO: Write your answer here
+    // TODO: allows username and repo 
     var repoName = repos[i].owner.login + '/' + repos[i].name;
 
     var repoEl = document.createElement('div');

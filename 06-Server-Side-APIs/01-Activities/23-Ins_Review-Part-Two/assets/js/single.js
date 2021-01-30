@@ -11,7 +11,8 @@ var getRepoName = function () {
 
     getRepoIssues(repoName);
   } else {
-    document.location.replace('./index.html');
+     document.location.replace('./index.html'); 
+    //  redirect
   }
 };
 
@@ -29,6 +30,7 @@ var getRepoIssues = function (repo) {
       });
     } else {
       document.location.replace('./index.html');
+      // redirect back to page - need for homework
     }
   });
 };
