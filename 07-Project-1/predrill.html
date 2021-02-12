@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    var getDupes = (numArr) => {
+        var dup = {};
+        for (var i=0; i < numArr.length; i++){
+            var value = numArr[i];
+            if (dup[value]){
+                console.log('is not in dup')
+                return value;
+            } else {
+                console.log('is already in dup');
+                dup[value] = true;
+            }
+        }
+    };
+    var case1 = getDupes([2,4,5]);
+    var case2 = getDupes([1,3,4,1,3,4]);
+    var case3 = getDupes([2,5,6,3,5]);
+    console.log('case 1: ', case1, ' passing? ', case1 === 5);
+    console.log('case 2: ', case2, ' passing? ', case2 === 1);
+    console.log('case 3: ', case3, ' passing? ', case3 === undefined);
+    </script>  
+</body>
+</html>
+
+
