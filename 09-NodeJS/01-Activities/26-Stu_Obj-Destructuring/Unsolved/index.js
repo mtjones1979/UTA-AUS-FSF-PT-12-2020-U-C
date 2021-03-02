@@ -1,13 +1,13 @@
-// 1. Object
-const nodejs = {
-  name: 'Node.js',
-  type: 'JavaScript runtime environment',
-};
+// // 1. Object
+// const nodejs = {
+//   name: 'Node.js',
+//   type: 'JavaScript runtime environment',
+// };
 
-// TODO: Destructure the object 'nodejs'
-
-console.log(name); // <= Node.js
-console.log(type); // <= JavaScript runtime environment
+// // TODO: Destructure the object 'nodejs'
+// const { name, type } = nodejs 
+// console.log(name); // <= Node.js
+// console.log(type); // <= JavaScript runtime environment
 
 // 2. Nested Object
 const js = {
@@ -26,15 +26,17 @@ const js = {
   },
 };
 
-// TODO: Destructure the nested object 'js'
+// TODO: Destructure the nested object 'js' 
+const { framework1, framework2 } = js.tools.frameworks;
 
 console.log(framework1); // <= AngularJS
 console.log(framework2); // <= Vue.js
 
-// 3. Arrays
-const languages = ['HTML', 'CSS', 'JavaScript'];
+// // 3. Arrays
+// const languages = ['HTML', 'CSS', 'JavaScript'];
 
-// TODO: Destructure the array 'languages'
+// // TODO: Destructure the array 'languages'
 
-console.log(markup, style, scripting); // <= HTML CSS JavaScript
-console.log(markup); // <= HTML
+// const [ markup, style, scripting ] = languages;
+// console.log(markup, style, scripting); // <= HTML CSS JavaScript
+// console.log(markup); // <= HTML

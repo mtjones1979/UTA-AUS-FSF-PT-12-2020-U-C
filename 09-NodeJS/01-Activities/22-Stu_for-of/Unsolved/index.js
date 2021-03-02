@@ -1,0 +1,7 @@
+const songs = document.querySelectorAll("ul > li");
+
+
+for (const song of songs) {
+  song.classList.add("red");
+}
+console.log(songsRed)

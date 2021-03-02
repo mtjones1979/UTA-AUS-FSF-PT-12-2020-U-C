@@ -6,7 +6,7 @@ const arya = {
 };
 
 const greeting = `My name is ${arya.first}!
-I am loyal to ${arya.allegiance}.`;
+I am loyal to ${arya.allegiance}. I live at ${arya.origin}.`;
 
 console.log(greeting); // prints
 // My name is Arya!
