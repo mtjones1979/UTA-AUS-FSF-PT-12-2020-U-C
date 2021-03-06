@@ -7,6 +7,7 @@ describe("DayCare", () => {
       const dayCare = new DayCare();
 
       // TODO: Add a comment describing the purpose of the following statement
+      // wants default values has correct properties
       expect(dayCare).toEqual({ children: [], capacity: 3, ageLimit: 6 });
     });
   });
@@ -14,13 +15,16 @@ describe("DayCare", () => {
   describe("addChild", () => {
     it("should add a child to the 'children' array", () => {
       // TODO: Add a comment describing the purpose of the following declarations
+      // creating a new child - creates new object
       const child = new Child("Tammy", 1);
       const dayCare = new DayCare();
 
       // TODO: Add a comment describing the purpose of the following method
+      // adding child to daycare
       dayCare.addChild(child);
 
       // TODO: Add a comment describing the purpose of the following statements
+      // expecting not to be added  verify child was added
       expect(dayCare.children.length).toEqual(1);
       expect(dayCare.children[0]).toBe(child);
     });
@@ -32,6 +36,7 @@ describe("DayCare", () => {
       dayCare.addChild(child);
 
       // TODO: Add a comment describing the purpose of the following statement
+      // verify child was not added
       expect(dayCare.children.length).toEqual(0);
     });
 
@@ -40,6 +45,7 @@ describe("DayCare", () => {
       const child = new Child("Alice", 4);
 
       // TODO: Add a comment describing the purpose of the following expression
+      //  3 kids added initial objects
       dayCare.children = [
         new Child("Tammy", 1),
         new Child("Mark", 2),
@@ -49,22 +55,26 @@ describe("DayCare", () => {
       dayCare.addChild(child);
 
       // TODO: Add a comment describing the purpose of the following statement
+      // make sure the array = certain length - don't add 4th child
       expect(dayCare.children.length).toEqual(3);
     });
 
     it("should throw an error if not provided a Child object as an argument", () => {
       // TODO: Add a comment describing the purpose of the following declaration
+      // define the error message that is expected
       const err = new Error(
         "Expected parameter 'child' to be an instance of Child"
       );
 
       // TODO: Add a comment describing the purpose of the following expression
+      // define the code that will throw an error inside a callback function
       const cb = () => {
         const dayCare = new DayCare();
         dayCare.addChild();
       };
 
       // TODO: Add a comment describing the purpose of the following statement
+      // verify the callback caputred the error
       expect(cb).toThrowError(err);
     });
   });
@@ -78,12 +88,14 @@ describe("DayCare", () => {
       dayCare.children = [child1, child2, child3];
 
       // TODO: Add a comment describing the purpose of the following declaration
+      // remove and retun an object from children array
       const removed = dayCare.pickupChild(child2.name);
 
       expect(removed).toBe(child2);
       expect(dayCare.children.length).toEqual(2);
 
       // TODO: Add a comment describing the purpose of the following statement
+      // verify that child 2 is no longer in array
       expect(
         dayCare.children.some(child => child.name === child2.name)
       ).toEqual(false);
@@ -97,12 +109,15 @@ describe("DayCare", () => {
       dayCare.children = [child1, child2, child3];
 
       // TODO: Add a comment describing the purpose of the following declaration
+      // attempt to pick up child that doesn't existed
       const removed = dayCare.pickupChild("Fred");
 
       // TODO: Add a comment describing the purpose of the following statement
+      // verify that the returned object is undefined 
       expect(typeof removed).toEqual("undefined");
 
       // TODO: Add a comment describing the purpose of the following statement
+      // verify that no object was removed.
       expect(dayCare.children).toEqual([child1, child2, child3]);
     });
   });
