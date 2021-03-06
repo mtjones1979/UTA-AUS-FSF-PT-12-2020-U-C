@@ -33,7 +33,7 @@ const practiceCoding = () => {
       reject (new Error('Not coding. Student is distracted! ')
       );
     } else {
-      resolve('We are coding!')
+      resolve('We are coding!');
     }
   })
 }
@@ -42,9 +42,8 @@ const errorCallback = (message) => console.log(message);
 
 // TODO: Refactor to call 'practiceCoding()' and chain a 'then()' to log "We are coding in promises!" in the console
 // TODO: Chain a 'catch()' to log "Promise rejected: " and the error
-practiceCoding
-  .then(message) => {
-   console.log('We are coding in promises!')
-  }
-  .catch((err) =>{console.error(err)
-    )};
+practiceCoding()
+  .then((message) => 
+   console.log('We are coding in promises!', message))
+  .catch((error) => console.error('Promise Rejected!', error))
+    
