@@ -12,4 +12,8 @@ class Rectangle extends Shape {
 }
 
 const rectangle = new Rectangle(12, 9);
+console.log(rectangle.sideA);
+console.log(rectangle.sideB);
+console.log(rectangle.area);
+console.log(rectangle.perimeter);
 rectangle.printInfo();
