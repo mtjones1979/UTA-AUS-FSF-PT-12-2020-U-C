@@ -1,18 +1,18 @@
 const router = require('express').Router();
 const Book = require('../../models/Book');
 
-// TODO: Add a comment describing the purpose of this route
+// TODO: Add a comment describing the purpose of this route - end point
 router.get('/', (req, res) => {
-  // TODO: Add a comment describing the functionality of this method
+  // TODO: Add a comment describing the functionality of this method - like select * from
   Book.findAll().then((bookData) => {
     res.json(bookData);
   });
 });
 
-// TODO: Add a comment describing the purpose of this route
+// TODO: Add a comment describing the purpose of this route - direct route to paperbacks
 router.get('/paperbacks', (req, res) => {
   Book.findAll({
-    // TODO: Add a comment describing the functionality of this property
+    // TODO: Add a comment describing the functionality of this property - order by title
     order: ['title'],
     // TODO: Add a comment describing the functionality of this property
     where: {

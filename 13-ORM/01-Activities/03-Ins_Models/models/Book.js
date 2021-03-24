@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+require('dotenv').config()
 
 // Create a new Sequelize model for books
 class Book extends Model {}
