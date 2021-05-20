@@ -19,7 +19,7 @@ export function RecipeListItem(props) {
             <Thumbnail src="http://img.recipepuppy.com/560556.jpg" />
           </Col>
           <Col size="xs-8 sm-9">
-            <h3>Vegetable-Pasta Oven Omelet</h3>
+            <h3>{title}</h3>
             <p>
               Ingredients: "tomato, onions, red pepper, garlic, olive oil, zucchini, cream cheese,
               vermicelli, eggs, parmesan cheese, milk, italian seasoning, salt, black pepper"

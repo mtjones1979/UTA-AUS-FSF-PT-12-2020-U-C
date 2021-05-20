@@ -1,26 +1,32 @@
-import React from "react";
+import React, { Component } from "react";
+import NavTabs from "./NavTabs";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
 
-function SearchForm(props) {
-  return (
-    <form>
-      <div className="form-group">
-        <label htmlFor="search">Search:</label>
-        <input
-          onChange={props.handleInputChange}
-          value={props.value}
-          name="search"
-          type="text"
-          className="form-control"
-          placeholder="Search For a Movie"
-          id="search"
+class PortfolioContainer extends Component {
+  state = {
+    currentPage: "Home"
+  };
+
+  handlePageChange = page => {
+    this.setState({ currentPage: page });
+  };
+
+  render() {
+    return (
+      <div>
+        <NavTabs
+          currentPage={this.state.currentPage}
+          handlePageChange={this.handlePageChange}
         />
-        <br />
-        <button onClick={props.handleFormSubmit} className="btn btn-primary">
-          Search
-        </button>
+        Based on `this.state.currentPage`, render the appropriate component
+        here.
       </div>
-    </form>
-  );
+    );
+  }
 }
 
-export default SearchForm;
+export default PortfolioContainer;
+

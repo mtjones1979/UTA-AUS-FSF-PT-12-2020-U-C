@@ -4,7 +4,7 @@ const mongojs = require("mongojs");
 const app = express();
 
 const databaseUrl = "zoo";
-const collections = ["animals"];
+const collections = ["zoo"];
 
 const db = mongojs(databaseUrl, collections);
 
@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/all", (req, res) => {
-  db.animals.find({}, (err, data) => {
+  db.zoo.find({}, (err, data) => {
     if (err) {
       console.log(err);
     } else {
@@ -29,9 +29,25 @@ app.get("/all", (req, res) => {
 // TODO: Implement the remaining two routes
 
 // 1: Name: Send JSON response sorted by name in ascending order, e.g. GET "/name"
-
+app.get("/name", (req, res) => {
+  db.zoo.find().sort({name:1} , (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.json(data);
+    }
+  });
+});
 // 2: Weight: Send JSON response sorted by weight in descending order, , e.g. GET "/weight"
-
+app.get("/weight", (req, res) => {
+  db.zoo.find().sort({weight:-1}, (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.json(data);
+    }
+  });
+});
 // Set the app to listen on port 3000
 app.listen(3000, () => {
   console.log("App running on port 3000!");

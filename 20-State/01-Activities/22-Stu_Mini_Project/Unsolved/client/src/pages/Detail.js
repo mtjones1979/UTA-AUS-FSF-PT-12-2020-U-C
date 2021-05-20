@@ -4,6 +4,7 @@ import Jumbotron from "../components/Jumbotron";
 import { Col, Row, Container } from "../components/Grid";
 
 function Detail(props) {
+  
   return (
     <>{/* Replace `true` with the state of your application */}{true ? (
       <Container fluid>

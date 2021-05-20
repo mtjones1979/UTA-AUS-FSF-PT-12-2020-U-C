@@ -14,12 +14,35 @@
       request.onupgradeneeded = event => {
         const db = event.target.result;
        // CODE HERE
+       const toDoListStore = db.createObjectStore("toDoList", {keyPath: "listID"});
+       toDoListStore.createIndex("duedateIndex", "duedate");
       }
 
       
       request.onsuccess = () => {
         const db = request.result;
         // CODE HERE
+        const transaction = db.transaction(["toDoList"], "readwrite");
+        const toDoListStore = transaction.objectStore("toDoList");
+        const duedateIndex = toDoListStore.index("duedateIndex");
+  
+        // Adds data to our objectStore
+        toDoListStore.add({ listID: "1", duedate: "complete" });
+        toDoListStore.add({ listID: "2", duedate: "in-progress" });
+        toDoListStore.add({ listID: "3", duedate: "complete" });
+        toDoListStore.add({ listID: "4", duedate: "backlog" });
+       
+        // Return an item by keyPath
+        const getRequest = toDoListStore.get("1");
+        getRequest.onsuccess = () => {
+        console.log(getRequest.result);
+        };
+
+        // Return an item by index
+        const getRequestIdx = duedateIndex.getAll("complete");
+        getRequestIdx.onsuccess = () => {
+        console.log(getRequestIdx.result); 
+        };
       };
 
     </script>

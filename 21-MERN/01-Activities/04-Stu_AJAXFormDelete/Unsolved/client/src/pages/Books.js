@@ -12,7 +12,11 @@ function Books() {
 
   // update the initial state to provide values for
   // the controls in the form (use empty strings)
-  const [formObject, setFormObject] = useState({})
+  const [formObject, setFormObject] = useState({
+    title: "",
+    author: "",
+    synopsis: ""
+  })
 
   // Load all books and store them with setBooks
   useEffect(() => {
@@ -28,13 +32,30 @@ function Books() {
       .catch(err => console.log(err));
   };
 
-  function handleInputChange() {
+  function handleInputChange(event) {
     // add code to control the components here
-  }
+    const value = event.target.value;
+    const name = event.target.name;
+    setFormObject ({
+      ...formObject, [name]: value
+    });
+  };
 
   function handleFormSubmit() {
     // add code here to post a new book to the api
-  }
+    API.saveBooks({
+      title: formObject.title,
+      author: formObject.author,
+      synopsis: formObject.synopsis
+    })
+      .then(res => setFormObject({ 
+        title: "",
+        author: "",
+        synopsis: ""
+      }))
+      .then(() => loadBooks())
+      .catch(err => console.log(err))
+  };
 
   function deleteBook() {
     // add code here to remove a book using API
@@ -50,16 +71,19 @@ function Books() {
             <form>
               {/* inputs should be updated to be controlled inputs */}
               <Input
+                value={formObject.title}
                 onChange={handleInputChange}
                 name="title"
                 placeholder="Title (required)"
               />
               <Input
+                value={formObject.author}
                 onChange={handleInputChange}
                 name="author"
                 placeholder="Author (required)"
               />
               <TextArea
+                value={formObject.synopsis}
                 onChange={handleInputChange}
                 name="synopsis"
                 placeholder="Synopsis (Optional)"

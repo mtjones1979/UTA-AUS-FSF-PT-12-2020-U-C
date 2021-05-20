@@ -4,6 +4,7 @@ const expenseEl = document.getElementById("expense");
 const expensesListEl = document.getElementById("expenses-list");
 const submitBtn = document.getElementById("submit");
 const resetBtn = document.getElementById("reset");
+const calculateBudget = require('./calculations')
 
 function addToList(name, price) {
   expensesListEl.innerHTML += `<li class="list-group-item">Name: ${name}

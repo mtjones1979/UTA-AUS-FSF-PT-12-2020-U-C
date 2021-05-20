@@ -24,7 +24,12 @@ const darthmaul = {
 //
 
 // YOUR CODE GOES HERE
-
+const obiwan = {
+  name: 'Obi Wan Kenobi',
+  role: 'Jedi Master',
+  age: 35,
+  forcePoints: 1300,
+}
 //
 
 // Routes
@@ -45,7 +50,9 @@ app.get('/darthmaul', (req, res) => {
 //
 
 // YOUR CODE GOES HERE
-//
+app.get('/obiwan', (req, res) => {
+  res.json(obiwan);
+})
 //
 
 // Listener

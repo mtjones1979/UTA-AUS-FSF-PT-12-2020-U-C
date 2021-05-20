@@ -1,0 +1,6 @@
+({ 
+    "name": "Goldfish",
+    "numlegs": 0,
+    "class": "fish",
+    "weight": 5
+})

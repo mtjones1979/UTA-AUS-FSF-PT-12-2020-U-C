@@ -9,7 +9,9 @@ import { Container, Row, Col } from "./components/Grid";
 
 function App() {
 
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState([]
+
+  );
   const [recipeSearch, setRecipeSearch] = useState("");
 
   const handleInputChange = event => {
@@ -65,6 +67,15 @@ function App() {
         <Row>
           <Col size="xs-12">
             <h1>Render Recipes Here</h1>
+            <RecipeListItem
+            key={recipe.title}
+            title={recipe.title}
+            href={recipe.href}
+            ingredients={recipe.ingredients}
+            thumbnail={recipe.thumbnail}
+            >
+              );
+            </RecipeListItem>
           </Col>
         </Row>
       </Container>

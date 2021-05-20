@@ -6,10 +6,17 @@ import Alert from "../../components/Alert";
 import API from "../../utils/API";
 
 function Search() {
-  const [search, setSearch] = useState("Wikipedia");
-  const [title, setTitle] = useState("");
-  const [url, setUrl] = useState("");
-  const [error, setError] = useState("");
+  // const [search, setSearch] = useState("Wikipedia");
+  // const [title, setTitle] = useState("");
+  // const [url, setUrl] = useState("");
+  // const [error, setError] = useState("");
+  const [searchState, setSearchState] = useState({
+    search: "Wikipedia",
+    title: "",
+    url: "",
+    error: ""
+  });
+
 
   // When the component mounts, update the title to be Wikipedia Searcher
   useEffect(() => {
@@ -27,8 +34,9 @@ function Search() {
         if (res.data.status === "error") {
           throw new Error(res.data.message);
         }
-        setTitle(res.data[1][0]);
-        setUrl(res.data[3][0]);
+        setSearchState(
+      (res.data[1][0]);
+        (res.data[3][0]);
       })
       .catch(err => setError(err));
   }, [search]);

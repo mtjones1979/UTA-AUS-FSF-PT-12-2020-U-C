@@ -40,7 +40,15 @@
         const getCursorRequest = toDoListStore.openCursor();
         getCursorRequest.onsuccess = e => {
           // CODE HERE
+          const cursor = e.target.result;
+          if (cursor) {
+            console.log(cursor.value);
+            cursor.continue();
+          } else {
+            console.log("No documents left!");
+          }
         };
+       
       };
     </script>
   </body>

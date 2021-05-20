@@ -33,6 +33,13 @@ db.on("error", error => {
 app.post("/submit", ({ body }, res) => {
   // Save the request body as an object called book
   const book = body;
+  db.books.save(book, (error, data) => {
+    if (error) {
+      res.send(error);
+    } else {
+      res.send(data);
+    }
+  });
 
   // If we want the object to have a boolean value of false,
   // we have to do it here, because the ajax post will convert it
@@ -41,21 +48,69 @@ app.post("/submit", ({ body }, res) => {
 });
 
 // Find all books marked as read
-app.get("/read", (req, res) => {});
-
+app.get("/read", (req, res) => {
+  db.books.find({read : true}, (error, data) => {
+   if (error) {
+      res.send(error);
+    } else {
+      res.json(data);
+    }
+  });
+});
 // Find all books marked as unread
-app.get("/unread", (req, res) => {});
-
-// Mark a book as having been read
-app.put("/markread/:id", (req, res) => {
-  // Remember: when searching by an id, the id needs to be passed in
-  // as (mongojs.ObjectId(IdYouWantToFind))
+app.get("/unread", (req, res) => {
+  db.books.find({read : false}, (error, data) => {
+    if (error) {
+      res.send(error);
+    } else {
+      res.json(data);
+    }
+  });
 });
 
-// Mark a book as having been not read
-app.put("/markunread/:id", (req, res) => {
+// Mark a book as having been read
+app.put("/markread/:id", ({ params }, res) => {
   // Remember: when searching by an id, the id needs to be passed in
   // as (mongojs.ObjectId(IdYouWantToFind))
+  db.books.update(
+    {
+      _id: mongojs.ObjectId(params.id)
+    },
+    {
+      $set: {
+        read : true
+      }
+    },
+    (error, data) => {
+      if (error) {
+        res.send(error);
+      } else {
+        res.send(data);
+      }
+    }
+  );
+});
+// Mark a book as having been not read
+app.put("/markunread/:id", ({ params}, res) => {
+  // Remember: when searching by an id, the id needs to be passed in
+  // as (mongojs.ObjectId(IdYouWantToFind))
+  db.books.update(
+    {
+      _id: mongojs.ObjectId(params.id)
+    },
+    {
+      $set: {
+        read : false
+      }
+    },
+    (error, data) => {
+      if (error) {
+        res.send(error);
+      } else {
+        res.send(data);
+      }
+    }
+  );
 });
 
 // Listen on port 3000

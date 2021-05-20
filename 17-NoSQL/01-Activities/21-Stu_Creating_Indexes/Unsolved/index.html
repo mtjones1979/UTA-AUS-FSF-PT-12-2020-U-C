@@ -13,6 +13,12 @@
 
       request.onupgradeneeded = ({ target }) => {
         // CODE HERE
+        const db = target.result;
+
+        const objectStore = db.createObjectStore("toDoList");
+        objectStore.createIndex("icebox", "iceboxStoreKey");
+        objectStore.createIndex("inprogess", "inprogressStoreKey");
+        objectStore.createIndex("complete", "completeStoreKey")
       };
 
       request.onsuccess = event => {

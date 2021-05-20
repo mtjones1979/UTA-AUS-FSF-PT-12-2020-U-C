@@ -8,5 +8,11 @@
       {{description}}
     </p>
 <!-- TODO: Use a built-in helper to display "Contains Nuts" if a food item contains nuts.-->
+  <p>
+  {{#if has_nuts }}This product has nuts!{{/if}}
+  </p>
+  {{#unless has_nuts}}
+  <p>This product doesn't have nuts!</p>
+  {{/unless}}
   </div>
 </div>

@@ -11,6 +11,9 @@
 </body>
 </html>
 <script>
-
+ const request = indexedDB.open("secondDatabase", 2);
+ request.onsuccess = event => {
+  console.log(request.result.name);
+ };
 // CODE HERE
 </script>

@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "npx eslint **/*.js"
+    "lint": "npx eslint **/*.js",
+    "lint:fix": "npx eslint **/*.js --fix"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^7.12.1"
+    "eslint": "^7.23.0"
   }
 }

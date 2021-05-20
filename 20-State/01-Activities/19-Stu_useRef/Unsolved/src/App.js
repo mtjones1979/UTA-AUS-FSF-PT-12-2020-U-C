@@ -2,18 +2,42 @@ import React, { useReducer, useRef } from "react";
 import "./App.css";
 
 const TodoList = () => {
+  const inputRef = useRef();
   // Placeholder array
-  const items = [];
+  const [ items, dispatch ] = useReducer ((state, action) => {
+    switch (action.type) {
+      case "add":
+        return [ ...state,
+        { 
+          id: state.length* Math.random(),
+          name: action.name
+        }
+      ];
+      case "remove":
+      return state.filter ((_, index) => {
+        return index !== action.index;
+      });
+    default: 
+        return state;
+    }
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
+    dispatch({
+      type: "add",
+      name: inputRef.current.value
+    });
+    inputRef.current.value ="";
   }
 
   return (
     <div className="container text-center">
       <h1>Create a Todo List!</h1>
       <form className="form-group mt-5" onSubmit={handleSubmit}>
-        <input className="form-control" placeholder="Start typing what you need to do..." />
+        <input className="form-control" placeholder="Start typing what you need to do..." 
+        ref={inputRef}
+        />
         <button className="btn btn-success mt-3 mb-5" type="submit">
           Add to List
         </button>
@@ -26,6 +50,9 @@ const TodoList = () => {
           </li>
         ))}
       </ul>
+      <button className="btn btn-success mt-3 mb-5" onClick= { () => dispatch("remove",index)} >
+          Remove
+        </button>
     </div>
   );
 };

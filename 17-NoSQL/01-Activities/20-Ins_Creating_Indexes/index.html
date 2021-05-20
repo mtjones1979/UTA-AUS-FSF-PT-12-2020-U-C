@@ -15,7 +15,7 @@
         const db = target.result;
 
         const objectStore = db.createObjectStore("toDoList");
-        objectStore.createIndex("timestamp", "timestamp");
+        objectStore.createIndex("timestamp", "nameOfIndex");
       };
 
       request.onsuccess = event => {

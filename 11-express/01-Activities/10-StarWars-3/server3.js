@@ -35,18 +35,21 @@ app.get('/', (req, res) => {
   res.send('Welcome to the Star Wars Page!');
 });
 
-// What does this route do?
+// What does this route do? returns all of the characters of json objects
 app.get('/api/characters', (req, res) => {
   return res.json(characters);
 });
 
-// What does this route do?
+// What does this route do? returns no character found 
+// or get rid of :character and return just that character
 app.get('/api/characters/:character', (req, res) => {
   // What does this code do?
+
   const chosen = req.params.character;
   console.log(chosen);
 
   // What does this code do?
+  
   for (let i = 0; i < characters.length; i++) {
     const currentChar = characters[i];
     if (chosen === currentChar.routeName) {

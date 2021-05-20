@@ -31,20 +31,16 @@ app.get("/", (req, res) => {
 // 1. Save a note to the database's collection
 // POST: /submit
 // ===========================================
-
-// 2. Retrieve all notes from the database's collection
-// GET: /all
-// ====================================================
-
-// 3. Retrieve one note in the database's collection by it's ObjectId
-// TIP: when searching by an id, the id needs to be passed in
-// as (mongojs.ObjectId(IdYouWantToFind))
-// GET: /find/:id
-// ==================================================================
-
-// 4. Update one note in the database's collection by it's ObjectId
-// (remember, mongojs.ObjectId(IdYouWantToFind)
-// POST: /update/:id
+app.post("/submit", (req, res) => {
+  db.notes.insert("docs", collections =>{
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(index.html);
+      }
+  });
+});
+  // POST: /update/:id
 // ================================================================
 
 // 5. Delete one note from the database's collection by it's ObjectId
